@@ -1,0 +1,7 @@
+{
+  "name": "set-state-loading",
+  "version": "0.0.0",
+  "description": "Sets/unsets a 'loading' state for react-like component while doing an async op",
+  "main": "index.js",
+  "repository": "laggingreflex/set-state-loading"
+}
