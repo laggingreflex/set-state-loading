@@ -37,7 +37,7 @@ class MyComponent extends React.Component {
   }
 }
 ```
-This will do the following things in that order:
+This will do the following in this order:
 
 1. Sets a "loading" state with a promise:
 
@@ -89,7 +89,7 @@ setStateLoading.call(this, fn [,opts]);
 
 // or using ESNext bind operator
 
-this::setStateLoading.call(fn [,opts]);
+this::setStateLoading(fn [,opts]);
 ```
 
 * **`this`** `[object](required)` The "`this`" of a react-like component. It must have a `setState` method.
