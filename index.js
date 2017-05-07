@@ -36,12 +36,12 @@ function setStateLoading(fn, opts) {
     const stateArg = {};
     stateArg[opts.data] = data;
     stateArg[opts.loading] = null;
-    this.setState(stateArg);
+    return this.setState(stateArg);
   }).catch(error => {
     const stateArg = {};
     stateArg[opts.error] = error;
     stateArg[opts.loading] = null;
-    this.setState(stateArg);
+    return this.setState(stateArg);
   });
 
   const stateArg = {};
