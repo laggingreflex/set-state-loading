@@ -36,12 +36,22 @@ function setStateLoading(fn, opts) {
     const stateArg = {};
     stateArg[opts.data] = data;
     stateArg[opts.loading] = null;
-    return data;
+    const setStatePromise = this.setState(stateArg);
+    if (setStatePromise && setStatePromise.then) {
+      return setStatePromise.then(() => data);
+    } else {
+      return data;
+    }
   }).catch(error => {
     const stateArg = {};
     stateArg[opts.error] = error;
     stateArg[opts.loading] = null;
-    throw error;
+    const setStatePromise = this.setState(stateArg);
+    if (setStatePromise && setStatePromise.then) {
+      return setStatePromise.then(() => { throw error });
+    } else {
+      throw error;
+    }
   });
 
   const stateArg = {};
