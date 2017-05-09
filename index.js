@@ -45,6 +45,9 @@ function setStateLoading(fn, opts) {
   });
 
   const stateArg = {};
+  if (opts.unsetError !== false) {
+    stateArg[opts.error] = null;
+  }
   if (this.state && this.state[opts.loading])
     stateArg[opts.loading] = this.state[opts.loading].then(() => promise);
   else
