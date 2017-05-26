@@ -26,12 +26,15 @@ function setStateLoading(fn, opts) {
   if (!promise || !promise.then) throw new Error('fn must return a promise');
 
   promise = promise.then(data => {
-    if (data[opts.error] && opts.rejectIfDataContainsError) {
+    if (data[opts.error]) {
       if (data[opts.error] instanceof Error) {
         throw data[opts.error];
       } else {
-        return Promise.reject(data);
+        return Promise.reject(data[opts.error]);
       }
+    }
+    if (data[opts.data]) {
+      data = data[opts.data];
     }
     const stateArg = {};
     stateArg[opts.data] = data;
